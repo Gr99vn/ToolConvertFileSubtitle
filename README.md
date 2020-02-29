@@ -1,3 +1,3 @@
 # ToolConvertFileSubtitle
 .Vtt to .Srt
-File execute: VttToSrtConvert
+#File execute: VttToSrtConvert
