@@ -1,6 +1,6 @@
 def makeFileName(fileBase):
-    newFName = re.sub(r'.vtt$', '', fileBase) 
-    return  newFName + '.srt'
+    newFName = fileBase.replace('.vtt', '.srt')
+    return  newFName
 
 def convertTime(string):
     if string.find(' --> ') != -1:
