@@ -11,6 +11,7 @@ def getFilePath():
 
 def getFilePathByFolder():
     folderPath = filedialog.askdirectory()
+    print('-->  Folder Path:', folderPath)
     os.chdir(folderPath)
     fileList = []
     for file in glob.glob("*.vtt"):
