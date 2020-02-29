@@ -1,18 +1,11 @@
-import re
-
 def makeFileName(fileBase):
     newFName = re.sub(r'.vtt$', '', fileBase) 
     return  newFName + '.srt'
+
 def convertTime(string):
-    confirm = re.search(' --> ', string)
-    if confirm:
-        strIn = string.split(' --> ')
-        match = re.sub(r'[.]{1}', ',', strIn[0])
-        sout = '00:' + match
-        strOut = sout
-        match = re.sub(r'[.]{1}', ',', strIn[1])
-        sout = '00:' + match
-        strOut += ' --> ' + sout
+    if string.find(' --> ') != -1:
+        strIn = string.replace('.', ',')
+        strOut = '00:'+ strIn[0:14] + '00:'+ strIn[14:] 
         return strOut
     else:
         return ''
