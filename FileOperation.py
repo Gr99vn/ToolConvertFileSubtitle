@@ -21,16 +21,17 @@ def doConvert(fileIn, fileOut):
             if confirm:
                 strIn = line.split(' --> ')
                 match = re.sub(r'[.]{1}', ',', strIn[0])
-                match = re.sub(r'^00', '00:00', match)
-                strOut = match
+                sout = '00:' + match
+                strOut = sout
                 match = re.sub(r'[.]{1}', ',', strIn[1])
-                match = re.sub(r'^00', '00:00', match)
-                strOut += ' --> ' + match
+                sout = '00:' + match
+                strOut += ' --> ' + sout
                 fout.write(strOut)
         if oldIndex + 2 == newIndex:
             fout.write(line + '\n')
         newIndex += 1
-
+    fin.close()
+    fout.close()
 def makeFileName(fileBase):
     newFName = re.sub(r'.vtt$', '', fileBase) 
     return  newFName + '.srt'
